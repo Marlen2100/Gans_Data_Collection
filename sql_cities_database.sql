@@ -52,10 +52,10 @@ CREATE TABLE weather
 (
 	city_id INT,
     start_time DATETIME,
-    temp FLOAT,
+    temperature FLOAT,
     humidity INT,
-    rain FLOAT,
-    snow FLOAT,
+    rain VARCHAR(20),
+    snow VARCHAR(20),
     wind_speed FLOAT,
     time_retrieved DATETIME,
     FOREIGN KEY (city_id) REFERENCES city(city_id)
