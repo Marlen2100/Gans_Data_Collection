@@ -50,6 +50,7 @@ CREATE TABLE population
 
 CREATE TABLE weather
 (
+	weather_id INT AUTO_INCREMENT,
 	city_id INT,
     start_time DATETIME,
     temperature FLOAT,
@@ -58,10 +59,42 @@ CREATE TABLE weather
     snow VARCHAR(20),
     wind_speed FLOAT,
     time_retrieved DATETIME,
+    PRIMARY KEY (weather_id),
     FOREIGN KEY (city_id) REFERENCES city(city_id)
 );
+
+CREATE TABLE airport
+(
+	icao VARCHAR(5),
+    iata VARCHAR(5),
+    airport_name VARCHAR(255),
+    country_code VARCHAR(5),
+    time_zone VARCHAR(20),
+    latitude FLOAT,
+    longitude FLOAT,
+    city_id INT,
+    PRIMARY KEY (icao),
+    FOREIGN KEY (city_id) REFERENCES city(city_id)
+);
+
+CREATE TABLE flights
+(
+	flight_id INT AUTO_INCREMENT,
+    flight_number VARCHAR(10),
+    call_Sign VARCHAR(20),
+    flight_status VARCHAR(20),
+    departure_icao VARCHAR(5),
+    airline VARCHAR(50),
+    arrival_time_local VARCHAR(50),
+    arrival_icao VARCHAR(5),
+    PRIMARY KEY (flight_id),
+    FOREIGN KEY (arrival_icao) REFERENCES airport(icao)
+);
+
+DROP TABLE city_start;
 
 SELECT * FROM city;
 SELECT * FROM country;
 SELECT * FROM population;
 SELECT * FROM weather;
+SELECT * FROM airport;
