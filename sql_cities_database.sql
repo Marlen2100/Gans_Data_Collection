@@ -67,9 +67,9 @@ CREATE TABLE airport
 (
 	icao VARCHAR(5),
     iata VARCHAR(5),
-    airport_name VARCHAR(255),
-    country_code VARCHAR(5),
-    time_zone VARCHAR(20),
+    name VARCHAR(255),
+    countryCode VARCHAR(5),
+    timeZone VARCHAR(20),
     latitude FLOAT,
     longitude FLOAT,
     city_id INT,
@@ -80,9 +80,9 @@ CREATE TABLE airport
 CREATE TABLE flights
 (
 	flight_id INT AUTO_INCREMENT,
-    flight_number VARCHAR(10),
-    call_Sign VARCHAR(20),
-    flight_status VARCHAR(20),
+    number VARCHAR(10),
+    callSign VARCHAR(10),
+    status VARCHAR(20),
     departure_icao VARCHAR(5),
     airline VARCHAR(50),
     arrival_time_local VARCHAR(50),
@@ -98,3 +98,4 @@ SELECT * FROM country;
 SELECT * FROM population;
 SELECT * FROM weather;
 SELECT * FROM airport;
+SELECT * FROM flights;
